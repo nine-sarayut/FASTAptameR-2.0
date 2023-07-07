@@ -20,15 +20,15 @@ COPY run.sh /usr/bin/run.sh
 # Set the executable permissions for the custom run script
 RUN chmod +x /usr/bin/run.sh
 
-# Upgrade R packages
-RUN R -e "install.packages(c('shiny', 'shinythemes', 'stringi', 'DT', 'shinyBS', 'shinyjs', 'shinycssloaders', 'colourpicker', 'purrr', 'shinyFiles', 'UpSetR'), repos='https://cran.rstudio.com/', upgrade=TRUE)"
-RUN R -e "install.packages(c('dplyr', 'ggplot2', 'plotly', 'kmer', 'factoextra', 'jsonlite', 'LaF'), repos='https://cran.rstudio.com/', upgrade=TRUE)"
-RUN R -e "install.packages('BiocManager', repos='https://cran.rstudio.com/', upgrade=TRUE)"
+# Install R packages
+RUN R -e "install.packages(c('shiny', 'shinythemes', 'stringi', 'DT', 'shinyBS', 'shinyjs', 'shinycssloaders', 'colourpicker', 'purrr', 'shinyFiles', 'UpSetR'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('dplyr', 'ggplot2', 'plotly', 'kmer', 'factoextra', 'jsonlite', 'LaF'), repos='https://cran.rstudio.com/')"
+RUN R -e "install.packages('BiocManager', repos='https://cran.rstudio.com/')"
 # RUN R -e "BiocManager::install(c('Rhtslib', 'Rsamtools', 'GenomicAlignments', 'rtracklayer', 'BSgenome'), version = '3.13')"
-RUN R -e "BiocManager::install(c('Rhtslib', 'Rsamtools', 'GenomicAlignments', 'rtracklayer', 'BSgenome'), upgrade=TRUE)"
+RUN R -e "BiocManager::install(c('Rhtslib', 'Rsamtools', 'GenomicAlignments', 'rtracklayer', 'BSgenome'))"
 
 # Install LaF package from GitHub
-RUN R -e "install.packages('remotes', repos='https://cran.rstudio.com/', upgrade=TRUE)"
+RUN R -e "install.packages('remotes', repos='https://cran.rstudio.com/')"
 # RUN R -e "remotes::install_url('https://github.com/djvanderlaan/LaF/archive/refs/tags/v0.6.3.tar.gz', INSTALL_opts = '--no-multiarch')"
 
 # Expose port 3838 for Shiny Server

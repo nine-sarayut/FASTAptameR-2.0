@@ -1,5 +1,9 @@
 docker build -t winuthayanon/fastaptamer-2.0:20230706 . -f Dockerfile
 docker push winuthayanon/fastaptamer-2.0:20230706
+docker build -t winuthayanon/fastaptamer-2.0:4.3.0 . -f Dockerfile
+docker push winuthayanon/fastaptamer-2.0:4.3.0
+docker build -t winuthayanon/fastaptamer-2.0:4.3.0-1 . -f Dockerfile
+docker push winuthayanon/fastaptamer-2.0:4.3.0-1
 
 # docker run -v "$(pwd)/nine:/app/user_work" -v /var/run/docker.sock:/var/run/docker.sock \
 # -p 4949:4949 \
